@@ -27,6 +27,7 @@ module.exports = {
                     return -999;
                 return parseFloat(valor.replace("%", "").replace(".", "").replace(",", "."));
             } 
+
             document.querySelectorAll('tbody > tr').forEach(
                 linhas => {
                     linha = linhas.querySelectorAll('td');
@@ -57,7 +58,8 @@ module.exports = {
                         vacanciaFinanceira,
                         qtdeAtivos
                     };
-        
+                     
+                    
                     FiisEncontrados.push(fii); 
                     }
                 );
@@ -68,33 +70,7 @@ module.exports = {
         return result;  // retorna para função exportada
     },
 
-    async getStaticInfo(fiis){
-        const browser = await Puppeteer.launch({
-            headless: false,
-            defaultViewport: null
-        });
-        
-        fiis.forEach(async fii => {       
-            const page = await browser.newPage();
-            await page.goto(`https://www.fundsexplorer.com.br/funds/${fii.codigo}`);
-            await page.waitForSelector('li > div.text-wrapper > span.description');
-            const result = await page.evaluate(() => {
-                const info = document.querySelectorAll('li > div.text-wrapper > span.description');
-                const gestao = info[5].innerText;
-                const publico = info[9].innerText;
-                const mandato = info[10].innerText;                
-                return { gestao, publico, mandato};
-            });
-            console.log(result);
-
-            fii.gestao = result.gestao;
-            fii.publico = result.publico;
-            fii.mandato = result.mandato;
-            console.log(fii);
-        });
-       // browser.close();
-        return fiis;  // retorna para função exportada 
-    }
+  
 };
 
 
