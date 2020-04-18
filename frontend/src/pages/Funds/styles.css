@@ -1,40 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  font-weight: 300;
+  max-width: 80%;
+  margin: auto;
+  background-color: #fdfdfd;
+}
+
+
+form {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;
+}
+form input {
+  border: 1px solid #5e32ad;
+  border-radius: 5px;
+  padding: 6px;
+  margin: 2px 4px;
+  color: #5e32ad;
+  width: 12%;
+}
+
 table.purpleTable {
-    border: 1px solid #4D1CA4;
-    background-color: #EEEEEE;
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-  }
-  table.purpleTable td, table.purpleTable th {
-    padding: 3px 2px;
-  }
-  table.purpleTable tbody td {
-    font-size: 13px;
-  }
-  table.purpleTable tr:nth-child(even) {
-    background: #E4D4F4;
-  }
-  table.purpleTable thead {
-    background: #4D1CA4;
-    background: -moz-linear-gradient(top, #7955bb 0%, #5e32ad 66%, #4D1CA4 100%);
-    background: -webkit-linear-gradient(top, #7955bb 0%, #5e32ad 66%, #4D1CA4 100%);
-    background: linear-gradient(to bottom, #7955bb 0%, #5e32ad 66%, #4D1CA4 100%);
-  }
-  table.purpleTable thead th {
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-  }
-  table.purpleTable tfoot td {
-    font-size: 14px;
-  }
-  table.purpleTable tfoot .links {
-    text-align: right;
-  }
-  table.purpleTable tfoot .links a{
-    display: inline-block;
-    background: #1C6EA4;
-    color: #FFFFFF;
-    padding: 2px 8px;
-    border-radius: 5px;
-  }
+  border: 1px solid #5e32ad;
+  background-color: #f7f2ff;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.purpleTable td,
+table.purpleTable th {
+  padding: 6px 4px;
+}
+
+table.purpleTable tbody td {
+  font-size: 14px;
+}
+
+table.purpleTable tr:nth-child(even) {
+  background: #e4d4f4;
+}
+
+table.purpleTable thead {
+  background: #5e32ad;
+}
+
+table.purpleTable thead th {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+table.purpleTable tfoot td {
+  font-size: 12px;
+}
+
+table.purpleTable tfoot .links {
+  text-align: center;
+}
+
+table.purpleTable tfoot .links a {
+  display: inline-block;
+  background: #1c6ea4;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}

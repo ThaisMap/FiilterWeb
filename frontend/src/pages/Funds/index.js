@@ -15,7 +15,7 @@ export default function Funds(){
     }, [])
     return(
     <div>
-        <Filters/>
+        <Filters className="filters"/>
         <table className="purpleTable">
             <thead>
                 <tr>
@@ -40,15 +40,22 @@ export default function Funds(){
                       <td><FiTrash/></td>
                     <td>{fii.codigo}</td>
                     <td>{fii.setor}</td>
-                    <td>{fii.precoAtual}</td>
-                    <td>{fii.liquidez}</td>
-                    <td>{fii.dividendo}</td>
-                    <td>{fii.dy}</td>
-                    <td>{fii.dy12Media}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+                                        .format(fii.precoAtual)}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'decimal', useGrouping: 'true'})
+                                        .format(fii.liquidez)}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+                                        .format(fii.dividendo)}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
+                                        .format(fii.dy/100)}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: '2'})
+                                        .format(fii.dy12Media/100)}</td>
                     <td>{fii.pvpa}</td>
                     <td>{fii.rentabilidadeTotal}</td>
-                    <td>{fii.vacanciaFisica}</td>
-                    <td>{fii.vacanciaFinanceira}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
+                                        .format(fii.vacanciaFisica/100)}</td>
+                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
+                                        .format(fii.vacanciaFinanceira/100)}</td>
                     <td>{fii.qtdeAtivos}</td>
                 </tr>  
                 ))}               
