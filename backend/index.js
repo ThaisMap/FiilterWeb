@@ -11,5 +11,9 @@ app.get('/funds', async (request, response) => {
     return response.json(fiis);
 })
 
+app.get('/sectors', async(request, response) => {
+    const sectors = await Scraper.getSectors();
+    return response.json(sectors);
+})
 
 app.listen(3333);

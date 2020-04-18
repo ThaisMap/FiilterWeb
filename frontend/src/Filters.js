@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Filters(){
     return(
-        <form>
+        <form className='filtros'> 
             <input type='text' placeholder='Valor <'/>
             <input type='text' placeholder='Liquidez >'/>
             <input type='text' placeholder='Ultimo DY >'/>

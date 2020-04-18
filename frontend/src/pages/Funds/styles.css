@@ -18,13 +18,18 @@ form {
   max-width: 100%;
   margin: 20px auto;
 }
-form input {
+.filtros input {
   border: 1px solid #5e32ad;
   border-radius: 5px;
   padding: 6px;
   margin: 2px 4px;
   color: #5e32ad;
   width: 12%;
+}
+
+.setores input {
+  margin: 5px 4px 5px 24px;
+  color: #5e32ad;
 }
 
 table.purpleTable {

@@ -70,7 +70,33 @@ module.exports = {
         return result;  // retorna para função exportada
     },
 
-  
+    async getSectors(){
+        const browser = await Puppeteer.launch({
+            headless: true,
+            defaultViewport: null
+        });
+        const page = await browser.newPage();
+
+        await page.goto('https://www.fundsexplorer.com.br/ranking');
+        const result = await page.evaluate(() => {
+            const  setores = [];
+
+            document.querySelectorAll(
+                '#table-filters > span:nth-child(1) > div > ul > li > a > label > input[type=checkbox]')
+                .forEach(
+                    setor =>{
+                        setores.push(setor.getAttribute('value'))
+                    }
+                );
+
+                setores.shift();
+                return setores;
+        });
+
+        browser.close();
+        return result;
+    },
+    
 };
 
 

@@ -6,6 +6,7 @@ import api from '../../services/api';
 
 export default function Funds(){
     const [funds, setFunds] = useState([])
+    const [setores, setSetores] = useState([])
 
     useEffect(() => {
         api.get('funds').then(response => {
@@ -13,9 +14,23 @@ export default function Funds(){
             setFunds(response.data);
         })
     }, [])
+    useEffect(() => {
+        api.get('sectors').then(response => {
+            console.log("entao...")
+            setSetores(response.data);
+        })
+    }, [])
     return(
     <div>
-        <Filters className="filters"/>
+       <form className='setores'>
+       {setores.map(setor => ( 
+           <label>
+                <input type="checkbox" value="{setor}"/>
+               {setor}
+            </label>
+       ))}    
+       </form>
+
         <table className="purpleTable">
             <thead>
                 <tr>
@@ -51,11 +66,26 @@ export default function Funds(){
                     <td>{Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: '2'})
                                         .format(fii.dy12Media/100)}</td>
                     <td>{fii.pvpa}</td>
-                    <td>{fii.rentabilidadeTotal}</td>
-                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
+                    <td>
+                    {
+                        fii.rentabilidadeTotal === -999
+                            ? "--"
+                            : fii.rentabilidadeTotal + '%'
+                    }
+                   </td>
+                    <td>
+                    {
+                        fii.vacanciaFisica === -999
+                        ? "--"
+                        : Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
                                         .format(fii.vacanciaFisica/100)}</td>
-                    <td>{Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
-                                        .format(fii.vacanciaFinanceira/100)}</td>
+                    <td>
+                    {
+                        fii.vacanciaFinanceira === -999
+                        ? "--"
+                        : Intl.NumberFormat('pt-BR', { style: 'percent',minimumFractionDigits: '2'})
+                                        .format(fii.vacanciaFinanceira/100)}
+                                        </td>
                     <td>{fii.qtdeAtivos}</td>
                 </tr>  
                 ))}               
