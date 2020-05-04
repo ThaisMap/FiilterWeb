@@ -1,0 +1,4 @@
+.titulos{
+    display: flex;
+    justify-content: space-between;
+}

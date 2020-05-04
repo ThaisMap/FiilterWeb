@@ -7,7 +7,12 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/funds', async (request, response) => {
-    const fiis = await Scraper.getFiis();
+    const fiis = await Scraper.getSomeFiis();
+    return response.json(fiis);
+})
+
+app.get('/fewfunds', async (request, response) => {
+    const fiis = await Scraper.getSomeFiis();
     return response.json(fiis);
 })
 
