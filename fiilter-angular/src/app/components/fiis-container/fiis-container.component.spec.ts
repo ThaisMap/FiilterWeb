@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FiisTableComponent } from './fiis-table.component';
+import { FiisContainerComponent } from './fiis-container.component';
 
-describe('FiisTableComponent', () => {
-  let component: FiisTableComponent;
-  let fixture: ComponentFixture<FiisTableComponent>;
+describe('FiisContainerComponent', () => {
+  let component: FiisContainerComponent;
+  let fixture: ComponentFixture<FiisContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FiisTableComponent ]
+      declarations: [ FiisContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FiisTableComponent);
+    fixture = TestBed.createComponent(FiisContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
