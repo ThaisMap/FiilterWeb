@@ -1,56 +1,55 @@
-<app-filters (filtro)="onFiltro($event)"></app-filters>
+<div class="container" >
+  <app-filters (filtro)="onFiltro($event)"></app-filters>  
 
-<p>
+  <mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 tableStyle">
+      <ng-container matColumnDef="codigo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Código </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.codigo }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="setor">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Setor </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.setor }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="precoAtual">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Preço </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{ fii.precoAtual | currency:"BRL"  }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="liquidez">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Liquidez </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.liquidez | number }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dy">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Último dy </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.dy | number:'1.2-2' }}%</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dividendo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Último dividendo </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.dividendo | currency:"BRL"  }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dy12Media">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> DY médio 12 m </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.dy12Media | number:'1.2-2' }}%</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pvpa">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> P/VPA </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.pvpa | number:'1.2-2' }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="qtdeAtivos">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Quantos Ativos </mat-header-cell>
+          <mat-cell *matCellDef="let fii"> {{fii.qtdeAtivos }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+        
+  </mat-table> 
   
-</p>
-
-<mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="codigo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Código </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.codigo }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="setor">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Setor </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.setor }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="precoAtual">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Preço </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{ fii.precoAtual | currency:"BRL"  }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="liquidez">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Liquidez </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.liquidez | number }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="dy">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Último dy </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.dy | number:'1.2-2' }}%</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="dividendo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Último dividendo </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.dividendo | currency:"BRL"  }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="dy12Media">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> DY médio 12 m </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.dy12Media | number:'1.2-2' }}%</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="pvpa">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> P/VPA </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.pvpa | number:'1.2-2' }} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="qtdeAtivos">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Quantos Ativos </mat-header-cell>
-        <mat-cell *matCellDef="let fii"> {{fii.qtdeAtivos }} </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-      <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
-      
-</mat-table> 
+</div>

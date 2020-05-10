@@ -30,7 +30,7 @@ export class FiisContainerComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  apiFunds(){
+  apiSomeFunds(){
     this.fiiService.getSomeFunds().subscribe(fundos => {
       this.fiis = fundos;
       this.dataSource = new MatTableDataSource(this.fiis);
@@ -38,13 +38,30 @@ export class FiisContainerComponent implements OnInit {
     });
   }
 
-  onFiltro(evento){
+  apiFunds(){
+    this.fiiService.getAllFunds().subscribe(fundos => {
+      this.fiis = fundos;
+      this.dataSource = new MatTableDataSource(this.fiis);
+      this.dataSource.sort = this.sort;
+    });
+  }
 
+  onFiltro(evento){
     console.log(evento.filtros);
-    const filtrado = this.fiis.filter(f =>
-       (f.liquidez >= evento.filtros.liquidez 
-       && f.precoAtual <= evento.filtros.precoAtual ));
-    console.log(this.fiis);
+    let filtrado = this.fiis.filter(f =>
+       (f.liquidez >= evento.filtros.liquidez &&
+        f.qtdeAtivos >= evento.filtros.qtdeAtivos &&
+        f.dy12Media >= evento.filtros.dy12Media));
+    if(evento.filtros.precoAtual != "" && evento.filtros.precoAtual != null)
+    {
+      filtrado = filtrado.filter(f => f.precoAtual <= evento.filtros.precoAtual);
+    }
+      
+    if(evento.filtros.pvpa != "" && evento.filtros.pvpa != null)
+    {
+      filtrado = filtrado.filter(f => f.pvpa <= evento.filtros.pvpa);
+    }
+    
     this.dataSource = new MatTableDataSource(filtrado);
   }
 }

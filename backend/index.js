@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/funds', async (request, response) => {
-    const fiis = await Scraper.getSomeFiis();
+    const fiis = await Scraper.getFiis();
     return response.json(fiis);
 })
 

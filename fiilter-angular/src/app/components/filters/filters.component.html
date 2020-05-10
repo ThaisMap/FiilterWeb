@@ -3,30 +3,31 @@
     <table class="full-width" cellspacing="5">
         <tr>
             <td><mat-form-field class="full-width">
-                <mat-label>Código</mat-label>
-                <input matInput formControlName="codigo">
-            </mat-form-field></td>
-            <td><mat-form-field class="full-width">
                 <mat-label>Preço < </mat-label>
-                <input matInput placeholder="Menor que" formControlName="precoAtual">
+                <input matInput (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="precoAtual">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>Liquidez > </mat-label>
-                <input matInput placeholder="Maior que" formControlName="liquidez">
+                <input matInput (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="liquidez">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>DY médio > </mat-label>
-                <input matInput placeholder="Maior que" formControlName="dy12Media">
+                <input matInput (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="dy12Media">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>P/VPA < </mat-label>
-                <input matInput placeholder="Menor que" formControlName="pvpa">
+                <input matInput (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="pvpa">
             </mat-form-field></td>
-            <td>
-                <button mat-icon-button aria-label="Submit button" (click)="onSubmit()">
+             <td><mat-form-field class="full-width">
+                <mat-label>Qtde Ativos > </mat-label>
+                <input matInput (keyup)="enviarFiltro()" formControlName="qtdeAtivos">
+            </mat-form-field></td>
+               <td>
+                <button mat-icon-button aria-label="Submit button" (click)="enviarFiltro()">
                     <mat-icon>done</mat-icon>
                 </button>
-            </td>
+            </td> 
+       
         </tr>
     </table>
 </form>

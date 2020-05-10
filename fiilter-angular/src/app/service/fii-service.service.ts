@@ -16,6 +16,11 @@ export class FiiService {
     return this.http.get<Fii[]>(`${this.backendUrl}/fewfunds`);
   }
 
+  getAllFunds(): Observable<Fii[]>{
+    return this.http.get<Fii[]>(`${this.backendUrl}/funds`);
+  }
+
+
   getSetores(): Observable<string[]>{
     return this.http.get<string[]>(`${this.backendUrl}/sectors`);
   }

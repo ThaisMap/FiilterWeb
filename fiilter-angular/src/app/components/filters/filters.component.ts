@@ -16,15 +16,15 @@ export class FiltersComponent implements OnInit {
   ngOnInit(): void {
 
     this.formulario = this.formBuilder.group({
-      codigo: [null],
-      precoAtual: [200],
-      liquidez: [1000],
-      dy12Media: [100],
-      pvpa: [3],
+      precoAtual: [null],
+      liquidez: [null],
+      dy12Media: [null],
+      pvpa: [null],
+      qtdeAtivos: [null],
     });
   }
 
-  onSubmit() {
+  enviarFiltro() {
     this.filtro.emit({ filtros: this.formulario.value });
   }
 
