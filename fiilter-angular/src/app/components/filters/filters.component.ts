@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Type } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FiiService } from 'src/app/service/fii-service.service';
 
 @Component({
   selector: 'app-filters',
@@ -11,9 +12,14 @@ export class FiltersComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  setores: string[];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private fiiService: FiiService) { }
 
   ngOnInit(): void {
+    this.setores = this.fiiService.getLocalSetores();
 
     this.formulario = this.formBuilder.group({
       precoAtual: [null],
@@ -21,11 +27,18 @@ export class FiltersComponent implements OnInit {
       dy12Media: [null],
       pvpa: [null],
       qtdeAtivos: [null],
+      setores: [null]
     });
   }
 
   enviarFiltro() {
     this.filtro.emit({ filtros: this.formulario.value });
+  }
+
+  resetFilters(){
+    console.log(this.formulario);
+    //this.formulario.reset();
+    this.enviarFiltro();
   }
 
 }

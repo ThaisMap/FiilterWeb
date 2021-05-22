@@ -1,4 +1,4 @@
-export class Fii {
+export interface Fii {
   id: string;
   setor: string;
   precoAtual: number;

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 // Imports dos meus componentes
 import { AppComponent } from './app.component';
@@ -39,7 +40,8 @@ import { HeaderComponent } from './components/header/header.component';
     HttpClientModule, 
     ReactiveFormsModule, 
     MatButtonModule, 
-    MatIconModule
+    MatIconModule, 
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

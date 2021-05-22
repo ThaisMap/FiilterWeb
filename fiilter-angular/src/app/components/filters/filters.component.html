@@ -4,27 +4,35 @@
         <tr>
             <td><mat-form-field class="full-width">
                 <mat-label>Preço < </mat-label>
-                <input matInput (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="precoAtual">
+                <input matInput type="number" (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="precoAtual">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>Liquidez > </mat-label>
-                <input matInput (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="liquidez">
+                <input matInput type="number" (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="liquidez">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>DY médio > </mat-label>
-                <input matInput (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="dy12Media">
+                <input matInput type="number" (keyup)="enviarFiltro()" placeholder="Maior que" formControlName="dy12Media">
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
                 <mat-label>P/VPA < </mat-label>
-                <input matInput (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="pvpa">
+                <input matInput type="number" (keyup)="enviarFiltro()" placeholder="Menor que" formControlName="pvpa">
             </mat-form-field></td>
              <td><mat-form-field class="full-width">
                 <mat-label>Qtde Ativos > </mat-label>
-                <input matInput (keyup)="enviarFiltro()" formControlName="qtdeAtivos">
+                <input matInput type="number" (keyup)="enviarFiltro()" formControlName="qtdeAtivos">
             </mat-form-field></td>
-               <td>
-                <button mat-icon-button aria-label="Submit button" (click)="enviarFiltro()">
-                    <mat-icon>done</mat-icon>
+            <td>
+                <mat-form-field class="full-width setores">
+                    <mat-label>Setores</mat-label>
+                    <mat-select multiple (selectionChange)="enviarFiltro()" formControlName="setores">
+                      <mat-option *ngFor="let setor of setores" [value]="setor">{{setor}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </td>
+               <td class="td-icone">
+                <button mat-icon-button aria-label="Reset filtros" (click)="resetFilters()">
+                    <mat-icon>clear_all</mat-icon>
                 </button>
             </td> 
        
