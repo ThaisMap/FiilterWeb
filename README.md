@@ -8,8 +8,7 @@ Esse projeto mostra dados de Fundos de Investimento Imobiliario de forma tabelad
 
 Até o momento o projeto engloba:
 
-- Backend em node que pega as informações do site fundsexplorer.com.br através de webscraper
-- Frontend em angular criado para fins educativos
+- Backend em node que pega as informações do site fundsexplorer.com.br através de webcrawling
 - Frontend em NextJs e material-ui sendo desenvolvido no momento
 
 ## Author
